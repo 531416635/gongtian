@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yao.dao.GongTianDao">
+  <resultMap id="BaseResultMap" type="com.yao.model.GongTianModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="riqi" jdbcType="DATE" property="riqi" />
+    <result column="xqmc" jdbcType="VARCHAR" property="xqmc" />
+    <result column="lh" jdbcType="VARCHAR" property="lh" />
+    <result column="zxgs" jdbcType="VARCHAR" property="zxgs" />
+    <result column="lxr" jdbcType="VARCHAR" property="lxr" />
+    <result column="phone" jdbcType="BIGINT" property="phone" />
+    <result column="yc" jdbcType="VARCHAR" property="yc" />
+    <result column="sl" jdbcType="INTEGER" property="sl" />
+    <result column="jg" jdbcType="DOUBLE" property="jg" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="sfyf" jdbcType="INTEGER" property="sfyf" />
+    <result column="tjsj" jdbcType="DATE" property="tjsj" />
+    <result column="param" jdbcType="VARCHAR" property="param" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, riqi, xqmc, lh, zxgs, lxr, phone, yc, sl, jg, bz, sfyf, tjsj, param
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gongtian
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gongtian
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yao.model.GongTianModel">
+    insert into gongtian (id, riqi, xqmc, 
+      lh, zxgs, lxr, phone, 
+      yc, sl, jg, bz, 
+      sfyf, tjsj, param)
+    values (#{id,jdbcType=INTEGER}, #{riqi,jdbcType=DATE}, #{xqmc,jdbcType=VARCHAR}, 
+      #{lh,jdbcType=VARCHAR}, #{zxgs,jdbcType=VARCHAR}, #{lxr,jdbcType=VARCHAR}, #{phone,jdbcType=BIGINT}, 
+      #{yc,jdbcType=VARCHAR}, #{sl,jdbcType=INTEGER}, #{jg,jdbcType=DOUBLE}, #{bz,jdbcType=VARCHAR}, 
+      #{sfyf,jdbcType=INTEGER}, #{tjsj,jdbcType=DATE}, #{param,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yao.model.GongTianModel">
+    insert into gongtian
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="riqi != null">
+        riqi,
+      </if>
+      <if test="xqmc != null">
+        xqmc,
+      </if>
+      <if test="lh != null">
+        lh,
+      </if>
+      <if test="zxgs != null">
+        zxgs,
+      </if>
+      <if test="lxr != null">
+        lxr,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="yc != null">
+        yc,
+      </if>
+      <if test="sl != null">
+        sl,
+      </if>
+      <if test="jg != null">
+        jg,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="sfyf != null">
+        sfyf,
+      </if>
+      <if test="tjsj != null">
+        tjsj,
+      </if>
+      <if test="param != null">
+        param,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="riqi != null">
+        #{riqi,jdbcType=DATE},
+      </if>
+      <if test="xqmc != null">
+        #{xqmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lh != null">
+        #{lh,jdbcType=VARCHAR},
+      </if>
+      <if test="zxgs != null">
+        #{zxgs,jdbcType=VARCHAR},
+      </if>
+      <if test="lxr != null">
+        #{lxr,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=BIGINT},
+      </if>
+      <if test="yc != null">
+        #{yc,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null">
+        #{sl,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null">
+        #{jg,jdbcType=DOUBLE},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyf != null">
+        #{sfyf,jdbcType=INTEGER},
+      </if>
+      <if test="tjsj != null">
+        #{tjsj,jdbcType=DATE},
+      </if>
+      <if test="param != null">
+        #{param,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yao.model.GongTianModel">
+    update gongtian
+    <set>
+      <if test="riqi != null">
+        riqi = #{riqi,jdbcType=DATE},
+      </if>
+      <if test="xqmc != null">
+        xqmc = #{xqmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lh != null">
+        lh = #{lh,jdbcType=VARCHAR},
+      </if>
+      <if test="zxgs != null">
+        zxgs = #{zxgs,jdbcType=VARCHAR},
+      </if>
+      <if test="lxr != null">
+        lxr = #{lxr,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=BIGINT},
+      </if>
+      <if test="yc != null">
+        yc = #{yc,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null">
+        sl = #{sl,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null">
+        jg = #{jg,jdbcType=DOUBLE},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyf != null">
+        sfyf = #{sfyf,jdbcType=INTEGER},
+      </if>
+      <if test="tjsj != null">
+        tjsj = #{tjsj,jdbcType=DATE},
+      </if>
+      <if test="param != null">
+        param = #{param,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yao.model.GongTianModel">
+    update gongtian
+    set riqi = #{riqi,jdbcType=DATE},
+      xqmc = #{xqmc,jdbcType=VARCHAR},
+      lh = #{lh,jdbcType=VARCHAR},
+      zxgs = #{zxgs,jdbcType=VARCHAR},
+      lxr = #{lxr,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=BIGINT},
+      yc = #{yc,jdbcType=VARCHAR},
+      sl = #{sl,jdbcType=INTEGER},
+      jg = #{jg,jdbcType=DOUBLE},
+      bz = #{bz,jdbcType=VARCHAR},
+      sfyf = #{sfyf,jdbcType=INTEGER},
+      tjsj = #{tjsj,jdbcType=DATE},
+      param = #{param,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
