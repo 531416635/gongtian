@@ -12,6 +12,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
     <link type="text/css" href="css/bootstrap-datetimepicker.css" rel="stylesheet">
@@ -32,17 +33,20 @@
         <button type="button" class="btn btn-danger">（危险）Danger</button>
     </div>
     <div>
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="exampleInputName2">Name</label>
-                <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail2">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-            </div>
-            <button type="submit" class="btn btn-default">Send invitation</button>
-        </form>
+        <div class="form-group">
+            <label for="exampleInputName2">回填日期</label>
+            <div class="input-group date form_date1" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input21" data-link-format="yyyy-mm-dd">
+			    <input class="form-control" size="16" type="text" value="" readonly>
+			    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+			    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+			</div>
+			<input type="hidden" id="dtp_input21" value="" />
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="text" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn-default">Send invitation</button>
     </div>
     <table class="table table-hover">
         <thead>
@@ -65,6 +69,36 @@
             <tr>
                 <td>33</td>
             </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>33</td>
+            </tr>
         </tbody>
     </table>
 
@@ -75,7 +109,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
@@ -114,22 +148,27 @@
                                     <input type="hidden" id="dtp_input2" value="" />
                                 </td>
                             </tr>
-                            <tr><td class="table2_td">小区名称</td><td class="table2_td_1">2</td></tr>
-                            <tr><td class="table2_td">楼号</td><td class="table2_td_1">3</td></tr>
-                            <tr><td class="table2_td">装修公司</td><td class="table2_td_1">4</td></tr>
-                            <tr><td class="table2_td">联系人</td><td class="table2_td_1">5</td></tr>
-                            <tr><td class="table2_td">手机号码</td><td class="table2_td_1">6</td></tr>
-                            <tr><td class="table2_td">用材</td><td class="table2_td_1">7</td></tr>
-                            <tr><td class="table2_td">数量</td><td class="table2_td_1">8</td></tr>
-                            <tr><td class="table2_td">价格</td><td class="table2_td_1">9</td></tr>
-                            <tr><td class="table2_td">备注</td><td class="table2_td_1">10</td></tr>
-                            <tr><td class="table2_td">是否付钱</td><td class="table2_td_1">11</td></tr>
-                            <tr><td class="table2_td">添加日期</td><td class="table2_td_1">12</td></tr>
+                            <tr><td class="table2_td">小区名称</td><td class="table2_td_1"><input type="text" id="xqmc" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">楼号</td><td class="table2_td_1"><input type="text" id="lh" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">装修公司</td><td class="table2_td_1"><input type="text" id="zxgs" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">联系人</td><td class="table2_td_1"><input type="text" id="lxr" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">手机号码</td><td class="table2_td_1"><input type="text" id="phone" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">用材</td><td class="table2_td_1"><input type="text" id="yc" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">数量</td><td class="table2_td_1"><input type="text" id="sl" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">价格</td><td class="table2_td_1"><input type="text" id="jg" class="form-control" placeholder=""></td></tr>
+                            <tr><td class="table2_td">是否付钱</td><td class="table2_td_1">
+                            <label class="radio-inline">
+  								<input 	type="radio" name="inlineRadio"  value="1"> 是
+							</label>
+							<label class="radio-inline">
+							  <input type="radio" name="inlineRadio" value="0"> 否
+							</label></td></tr>
+                            <tr><td class="table2_td">备注</td><td class="table2_td_1"><textarea class="form-control" id="bz" rows="3"></textarea></td></tr>
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" id="dismiss_model" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="insetModel();">保存</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

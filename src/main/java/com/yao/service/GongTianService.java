@@ -1,6 +1,9 @@
 package com.yao.service;
 
+import java.util.List;
+
 import com.yao.model.GongTianModel;
+import com.yao.model.PageBean;
 
 public interface GongTianService {
 	int deleteByPrimaryKey(Integer id);
@@ -14,4 +17,6 @@ public interface GongTianService {
     int updateByPrimaryKeySelective(GongTianModel record);
 
     int updateByPrimaryKey(GongTianModel record);
+    
+    List<GongTianModel> selectByExample(GongTianModel model,PageBean pageBean);
 }

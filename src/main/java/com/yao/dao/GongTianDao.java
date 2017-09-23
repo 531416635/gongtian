@@ -1,5 +1,8 @@
 package com.yao.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.yao.model.GongTianModel;
 
 public interface GongTianDao {
@@ -14,4 +17,9 @@ public interface GongTianDao {
     int updateByPrimaryKeySelective(GongTianModel record);
 
     int updateByPrimaryKey(GongTianModel record);
+    
+    int selectCountByExample(GongTianModel record);
+    
+    List<GongTianModel> selectByExample(Map<String, Object> map);
+
 }

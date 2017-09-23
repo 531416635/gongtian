@@ -20,12 +20,73 @@
   <sql id="Base_Column_List">
     id, riqi, xqmc, lh, zxgs, lxr, phone, yc, sl, jg, bz, sfyf, tjsj, param
   </sql>
+  <sql id="Base_selectByExample_List">
+    <where>
+	  <if test="riqi != null">
+       	and riqi = #{riqi,jdbcType=DATE},
+      </if>
+      <if test="xqmc != null">
+        and xqmc = #{xqmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lh != null">
+        and lh = #{lh,jdbcType=VARCHAR},
+      </if>
+      <if test="zxgs != null">
+        and zxgs = #{zxgs,jdbcType=VARCHAR},
+      </if>
+      <if test="lxr != null">
+        and lxr = #{lxr,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        and phone = #{phone,jdbcType=BIGINT},
+      </if>
+      <if test="yc != null">
+        and yc = #{yc,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null">
+        and sl = #{sl,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null">
+        and jg = #{jg,jdbcType=DOUBLE},
+      </if>
+      <if test="bz != null">
+        and bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyf != null">
+        and sfyf = #{sfyf,jdbcType=INTEGER},
+      </if>
+      <if test="tjsj != null">
+        and tjsj = #{tjsj,jdbcType=DATE},
+      </if>
+      <if test="param != null">
+        and param = #{param,jdbcType=VARCHAR},
+      </if>
+      </where>
+  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from gongtian
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectCountByExample" parameterType="com.yao.model.GongTianModel" resultType="java.lang.Integer">
+  	select 
+    count(1)
+    from gongtian
+  	<include refid="Base_selectByExample_List" />
+  </select>
+  
+  <select id="selectByExample" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from gongtian
+  	<include refid="Base_selectByExample_List" />
+    <if test="pageBean != null">
+    	limit #{pageBean.startPage},#{pageBean.endPage}
+    </if>
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from gongtian
     where id = #{id,jdbcType=INTEGER}
